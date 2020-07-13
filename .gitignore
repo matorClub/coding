@@ -1,0 +1,41 @@
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+
+### gradle ###
+.gradle/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+*.lst
+
+### NetBeans ###
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+/.log/
+out/
+/logs/
+###java的自定义文件###
+*.class
+target
+.DS_Store
+*.war
+*.ear
+###macos
+*.DS_Store

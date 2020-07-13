@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="gbk" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="codegen.xsd">
+
+	<properties>
+		<property name="company" value="wormpex"></property>
+		<property name="project" value="buffett.contract"></property>
+		<property name="module" value="test"></property>
+		<property name="developer" value="chen_ff[feifei.chen@bianlifeng.com]"></property>
+	</properties>
+
+	
+	<database>
+		<!--<dbHelperClass>OracleHelper</dbHelperClass>-->
+		<!--<url>jdbc:oracle:thin:@172.16.135.252:1521/STAGEDB</url>-->
+		<!--<username>stage</username>-->
+		<!--<password>stage_sit</password>-->
+		
+ 	<dbHelperClass>club.mator.db.impl.MySqlHelper</dbHelperClass>
+		<url>jdbc:mysql://common4-w-mysql.dev.wormpex.com:33006/finance_contract</url>
+		<username>dev</username>
+		<password>096667f9c7d0396d</password>
+	</database>
+	
+	<!-- <tables tableName="TRS_IDE_MATCH_RANGE_BUSINESS,TRS_IDE_MATCH_RANGE_CUP_CODE"></tables> -->
+	<table tableName="test_creat">
+		<variable name="class" value="TestCreat" />
+	</table>
+<!-- 	<table tableName="t_tdsp_channel_params">
+		<variable name="class" value="TtdspChannelParams" />
+	</table>
+	<table tableName="t_tdsp_channel_call_dtl">
+		<variable name="class" value="TtdspChannelCallDtl" />
+	</table>
+	<table tableName="t_tdsp_channel_fee_rule">
+		<variable name="class" value="TtdspChannelFeeRule" />
+	</table>
+	<table tableName="t_tdsp_channel_route">
+		<variable name="class" value="TtdspChannelRoute" />
+	</table> -->
+	
+	
+	<templates basepath="/Users/bianlifeng/Desktop/cod">
+		<template id="po" path="po.ftl" />
+		<!--<template id="domain" path="domain.ftl" />-->
+		<template id="mapper" path="mapper.ftl" />
+		<template id="mapper-xml" path="mapper-xml.ftl" />
+		<template id="service" path="service.ftl" />
+		<template id="serviceimpl" path="serviceimpl.ftl" />
+	</templates>
+	
+	<files baseDir="/Users/bianlifeng/Desktop/cod" >
+		<file refTemplate="po" filename="{class}.java" dir="src/main/java/com/{company}/{project}/po/{module}" />
+		<!--<file refTemplate="domain" filename="{class}.java" dir="src/main/java/com/{company}/{project}/core/orm/{module}/domain" />-->
+		<file refTemplate="mapper" filename="{class}Mapper.java" dir="src/main/java/com/{company}/{project}/dao/{module}" />
+		<file refTemplate="mapper-xml" filename="{class}Mapper.xml" dir="src/main/resources/mapper" />
+		<file refTemplate="service" filename="{class}Service.java" dir="src/main/java/com/{company}/{project}/service/{module}" />
+		<file refTemplate="serviceimpl" filename="{class}ServiceImpl.java" dir="src/main/java/com/{company}/{project}/service/impl/{module}" />
+	</files>
+	
+</config>
