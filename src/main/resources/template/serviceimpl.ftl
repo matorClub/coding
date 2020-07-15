@@ -1,15 +1,15 @@
 <#import "function.ftl" as func>
 <#assign class=model.variables.class>
-package com.${vars.company}.${vars.project}.service.impl;
+package club.${vars.company}.${vars.project}.service.impl;
 
 
 import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
-import com.${vars.company}.${vars.project}.service.${vars.module}.${class?cap_first}Service;
-import com.${vars.company}.${vars.project}.model.po.${vars.module}.${class?cap_first};
-import com.${vars.company}.${vars.project}.dao.${vars.module}.${class?cap_first}Mapper;
+import club.${vars.company}.${vars.project}.service.${class?cap_first}Service;
+import club.${vars.company}.${vars.project}.po.${class?cap_first};
+import club.${vars.company}.${vars.project}.dao.${class?cap_first}Mapper;
 
 /**
  * Description: ${model.tabComment} Service
@@ -23,8 +23,8 @@ import com.${vars.company}.${vars.project}.dao.${vars.module}.${class?cap_first}
  */
 @Service
 public class ${class}ServiceImpl implements ${class}Service {
-	@Resource
-	private ${class}Mapper ${class?uncap_first}Mapper;
+    @Resource
+    private ${class}Mapper ${class?uncap_first}Mapper;
 
 
     @Override

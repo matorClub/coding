@@ -1,22 +1,22 @@
 <#import "function.ftl" as func>
 <#assign class=model.variables.class>
-package com.${vars.company}.${vars.project}.dao.${vars.module};
+package club.${vars.company}.${vars.project}.dao;
 
 import java.util.List;
-import org.apache.ibatis.annotations.Mapper;
-import com.${vars.company}.${vars.project}.model.po.${vars.module}.${class?cap_first};
+//import org.apache.ibatis.annotations.Mapper;
+import club.${vars.company}.${vars.project}.po.${class?cap_first};
 
 /**
  * Description: ${model.tabComment} Mapper
  <#if vars.company??>
- * Copyright: ©${date?string("yyyy")} ${vars.company}. All rights reserved.
+ * Copyright: ©${date?string("yyyy")} ${vars.company} All rights reserved.
  </#if>
  <#if vars.developer??>
  * @author ${vars.developer}
  </#if>
  * Created on: ${date?string("yyyy-MM-dd HH:mm:ss")}
  */
-@Mapper
+//@Mapper
 public interface ${class?cap_first}Mapper {
 
     int save(${class?cap_first} ${class?uncap_first});

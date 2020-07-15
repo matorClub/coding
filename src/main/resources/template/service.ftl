@@ -1,13 +1,13 @@
 <#import "function.ftl" as func>
 <#assign class=model.variables.class>
-package com.${vars.company}.${vars.project}.service.${vars.module};
+package club.${vars.company}.${vars.project}.service;
 
 import java.util.List;
-import com.${vars.company}.${vars.project}.model.po.${vars.module}.${class?cap_first};
+import club.${vars.company}.${vars.project}.po.${class?cap_first};
 /**
  * Description: ${model.tabComment} Service
  <#if vars.company??>
- * Copyright: ©${date?string("yyyy")} ${vars.company}. All rights reserved.
+ * Copyright: ©${date?string("yyyy")} ${vars.company} All rights reserved.
  </#if>
  <#if vars.developer??>
  * @author ${vars.developer}
