@@ -1,10 +1,10 @@
 <#import "function.ftl" as func>
 <#assign class=model.variables.class>
-package club.${vars.company}.${vars.project}.dao;
+package com.${vars.company}.${vars.project}.dao;
 
 import java.util.List;
-//import org.apache.ibatis.annotations.Mapper;
-import club.${vars.company}.${vars.project}.po.${class?cap_first};
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.${vars.company}.${vars.project}.domain.entity.${class?cap_first};
 
 /**
  * Description: ${model.tabComment} Mapper
@@ -16,8 +16,7 @@ import club.${vars.company}.${vars.project}.po.${class?cap_first};
  </#if>
  * Created on: ${date?string("yyyy-MM-dd HH:mm:ss")}
  */
-//@Mapper
-public interface ${class?cap_first}Mapper {
+public interface ${class?cap_first}Mapper extends BaseMapper<${class?cap_first}>  {
 
     int save(${class?cap_first} ${class?uncap_first});
 

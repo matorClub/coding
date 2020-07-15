@@ -1,41 +1,47 @@
 <#import "function.ftl" as func>
 <#assign class=model.variables.class>
-<#assign colList=model.columnList>
-package com.${vars.company}.${vars.project}.core.orm.${vars.module}.domain;
+package com.${vars.company}.${vars.project}.domain.entity;
 
-import java.util.*;
-
-import com.${vars.company}.${vars.project}.core.orm.${vars.module}.po.${class}Po;
-import com.suixingpay.common.core.orm.domain.Domain;
-import org.apache.commons.lang.builder.ToStringBuilder;
-import org.apache.commons.lang.builder.ToStringStyle;
-
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import io.swagger.annotations.ApiModel;
+import lombok.Data;
+import java.io.Serializable;
+import java.util.Date;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
 /**
- * Description: ${model.tabComment} Domain
+ * Description: ${model.tabComment}
  <#if vars.company??>
- * Copyright: ©${date?string("yyyy")} ${vars.company}. All rights reserved.
+ * Copyright: ©${date?string("yyyy")} ${vars.company} All rights reserved.
  </#if>
  <#if vars.developer??>
  * @author ${vars.developer}
  </#if>
  * Created on: ${date?string("yyyy-MM-dd HH:mm:ss")}
  */
-public class ${class} extends ${class}Po implements Domain {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	
-	 /**
-	  * Returns a string representation of the object.
-	  */
-	 @Override
-	 public String toString(){
-		return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
-	 }
-	 
-	 
-	
+@Data
+@EqualsAndHashCode(callSuper = false)
+@Accessors(chain = true)
+@ApiModel(value="${class}", description="${model.tabComment}")
+public class ${class} implements Serializable {
+    private static final long serialVersionUID = 1L;
+
+
+<#list model.columnList as columnModel>
+    <#if (columnModel.isPK) >
+    /**
+    * ${columnModel.comment}
+    */
+    @TableId(value = "${columnModel.humpColumnName?uncap_first}", type = IdType.AUTO)
+    private    ${columnModel.colType}    ${columnModel.humpColumnName?uncap_first};
+    <#else>
+    /**
+    * ${columnModel.comment}
+    */
+    private    ${columnModel.colType}    ${columnModel.humpColumnName?uncap_first};
+    </#if>
+</#list>
 }
