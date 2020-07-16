@@ -51,6 +51,7 @@ public class MySqlMapCmd implements MapCmd<ColumnModel>{
 			model.setColDbType(data_type);
 			model.setColType(javaType);
 			model.setDisplayDbType(displayDbType);
+			model.setJdbcType(data_type.toUpperCase());
 
 			return model;
 		}
@@ -123,7 +124,7 @@ public class MySqlMapCmd implements MapCmd<ColumnModel>{
 			{
 				return "java.util.Date";
 			}
-			
+
 			return dbtype;
 		}
 	

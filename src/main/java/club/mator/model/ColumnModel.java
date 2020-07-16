@@ -14,6 +14,7 @@ public class ColumnModel {
 	private int autoGen = 0;
 	private boolean isNotNull = false;
 	private String displayDbType="";
+	private String jdbcType = "";
 	
 	
 	public String getColumnName() {
@@ -89,7 +90,14 @@ public class ColumnModel {
 		this.displayDbType = displayDbType;
 	}
 
-	
+	public String getJdbcType() {
+		return jdbcType;
+	}
+
+	public void setJdbcType(String jdbcType) {
+		this.jdbcType = jdbcType;
+	}
+
 	@Override
 	public String toString() {
 		return "ColumnModel [columnName=" + columnName + ", comment=" + comment + ", colType=" + colType + ", colDbType=" + colDbType + ", isPK=" + isPK

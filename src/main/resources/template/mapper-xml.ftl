@@ -11,6 +11,8 @@
 <#assign pkType=func.getPkType(model) >
 <#assign pkVar=func.getPkVar(model) >
 
+
+
 <#-- mpper_xml -->
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
@@ -20,9 +22,9 @@
     <#list colList as col>
         <#if (col.isPK) >
 
-            <id property="${col.humpColumnName?uncap_first}" jdbcType="${col.colDbType}" column="${col.columnName}" />
+            <id property="${col.humpColumnName?uncap_first}" jdbcType="${col.jdbcType}" column="${col.columnName}" />
         <#else>
-            <result property="${col.humpColumnName?uncap_first}" jdbcType="${col.colDbType}" column="${col.columnName}" />
+            <result property="${col.humpColumnName?uncap_first}" jdbcType="${col.jdbcType}" column="${col.columnName}" />
         </#if>
     </#list>
     </resultMap>
@@ -54,7 +56,7 @@
         </trim>
     </insert>
     
-    <delete id="delete" parameterType=${pkType}>
+    <delete id="delete" parameterType="${pkType}">
         DELETE FROM ${tableName} 
         WHERE ${pk}=<#noparse>#{</#noparse>${pk}}
     </delete>
@@ -69,13 +71,13 @@
         WHERE ${pk}=<#noparse>#{</#noparse>${pk}}
     </update>
     
-    <select id="findOne" parameterType=${pkType} resultMap="Result">
+    <select id="findOne" parameterType="${pkType}" resultMap="Result">
         SELECT <include refid="columns"/>
         FROM ${tableName}
         WHERE ${pk}=<#noparse>#{</#noparse>${pk}}
     </select>
     
-    <select id="findAll" parameterType=${pkType} resultMap="Result">
+    <select id="findAll" parameterType="${pkType}" resultMap="Result">
         SELECT <include refid="columns"/>
         FROM ${tableName}
         <if test="list != null">
