@@ -34,7 +34,12 @@ public class MySqlMapCmd implements MapCmd<ColumnModel>{
 			comment=StringUtil.isEmpty(comment)?colName:comment;
 			boolean isPk=column_key.equals("PRI");
 			String data_type=rs.getString("data_type");
-			
+
+			String jdbcType = data_type.toUpperCase();
+			if (data_type.equalsIgnoreCase("INT")){
+				jdbcType = "INTEGER";
+			}
+
 			String javaType=getJavaType(data_type, precision, scale);
 			String displayDbType=getDisplayDbType(data_type,character_length, precision, scale);
 			
@@ -51,7 +56,7 @@ public class MySqlMapCmd implements MapCmd<ColumnModel>{
 			model.setColDbType(data_type);
 			model.setColType(javaType);
 			model.setDisplayDbType(displayDbType);
-			model.setJdbcType(data_type.toUpperCase());
+			model.setJdbcType(jdbcType);
 
 			return model;
 		}
