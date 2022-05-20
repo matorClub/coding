@@ -3,9 +3,9 @@
 xsi:noNamespaceSchemaLocation="codegen.xsd">
 
 	<properties>
-		<property name="company" value="mator"></property>
-		<property name="project" value="app"></property>
-		<property name="module" value="banner"></property>  <!--暂且不用-->
+		<property name="company" value="edianzu"></property>
+		<property name="project" value="finance.bill"></property>
+		<property name="module" value="cashier"></property>  <!--暂且不用-->
 		<property name="developer" value="chen_ff[mator.club@gmail.com]"></property>
 	</properties>
 
@@ -17,14 +17,14 @@ xsi:noNamespaceSchemaLocation="codegen.xsd">
 		<!--<password>stage_sit</password>-->
 		
  	<dbHelperClass>club.mator.db.impl.MySqlHelper</dbHelperClass>
-		<url>jdbc:mysql://localhost:3306/ruler_db</url>
-		<username>root</username>
-		<password>root</password>
+		<url>jdbc:mysql://10.66.177.130:3306/db_finance</url>
+		<username>chenfeifei</username>
+		<password>PQWbSME3P4kujug9</password>
 	</database>
 	
 	<!-- <tables tableName="TRS_IDE_MATCH_RANGE_BUSINESS,TRS_IDE_MATCH_RANGE_CUP_CODE"></tables> -->
-	<table tableName="algorithm_type">
-		<variable name="class" value="AlgorithmType" />
+	<table tableName="t_cashier_recharge_relevance">
+		<variable name="class" value="RechargeRelevance" />
 	</table>
 <!-- 	<table tableName="t_tdsp_channel_params">
 		<variable name="class" value="TtdspChannelParams" />
@@ -40,7 +40,7 @@ xsi:noNamespaceSchemaLocation="codegen.xsd">
 	</table> -->
 	
 	
-	<templates basepath="/Users/chenfeifei/Documents/ideaPro/coding/code">
+	<templates basepath="/Users/chenfeifei/Desktop/code">
 		<template id="po" path="po.ftl" />
 <!--		<template id="domain" path="domain.ftl" />-->
 		<template id="mapper" path="mapper.ftl" />
@@ -49,13 +49,13 @@ xsi:noNamespaceSchemaLocation="codegen.xsd">
 		<template id="serviceimpl" path="serviceimpl.ftl" />
 	</templates>
 	
-	<files baseDir="/Users/chenfeifei/Documents/ideaPro/coding/code" >
-		<file refTemplate="po" filename="{class}.java" dir="src/main/java/club/{company}/{project}/po" />
+	<files baseDir="/Users/chenfeifei/Desktop/code" >
+		<file refTemplate="po" filename="{class}.java" dir="src/main/java/com/{company}/{project}/po" />
 <!--		<file refTemplate="domain" filename="{class}.java" dir="src/main/java/club/{company}/{project}/core" />-->
-		<file refTemplate="mapper" filename="{class}Mapper.java" dir="src/main/java/club/{company}/{project}/dao" />
+		<file refTemplate="mapper" filename="{class}Mapper.java" dir="src/main/java/com/{company}/{project}/dao" />
 		<file refTemplate="mapper-xml" filename="{class}Mapper.xml" dir="src/main/resources/mapper" />
-		<file refTemplate="service" filename="{class}Service.java" dir="src/main/java/club/{company}/{project}/service/" />
-		<file refTemplate="serviceimpl" filename="{class}ServiceImpl.java" dir="src/main/java/club/{company}/{project}/service/impl" />
+<!--		<file refTemplate="service" filename="{class}Service.java" dir="src/main/java/club/{company}/{project}/service/" />-->
+<!--		<file refTemplate="serviceimpl" filename="{class}ServiceImpl.java" dir="src/main/java/club/{company}/{project}/service/impl" />-->
 	</files>
 	
 </config>
